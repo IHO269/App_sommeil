@@ -554,26 +554,38 @@ h1 {
 /* Icônes spécifiques */
 .icon-moon {
     background-image: url('icons/3d/moon.png');
+    width: 64px;
+    height: 64px;
 }
 
 .icon-clock {
     background-image: url('icons/3d/clock.png');
+    width: 64px;
+    height: 64px;
 }
 
 .icon-alarm {
     background-image: url('icons/3d/alarm.png');
+    width: 64px;
+    height: 64px;
 }
 
 .icon-sleep {
     background-image: url('icons/3d/sleep.png');
+    width: 64px;
+    height: 64px;
 }
 
 .icon-stats {
     background-image: url('icons/3d/stats.png');
+    width: 64px;
+    height: 64px;
 }
 
 .icon-settings {
     background-image: url('icons/3d/settings.png');
+    width: 64px;
+    height: 64px;
 }
 
 /* Adaptation des onglets avec les nouvelles icônes */

@@ -12,7 +12,7 @@ def convert_icons():
     }
     
     # Ouvrir l'image source
-    source = Image.open('source.png')
+    source = Image.open('image1.png')
     icon_size = source.width // 3  # Taille d'une icône individuelle
     
     # Créer le dossier de sortie s'il n'existe pas
