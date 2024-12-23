@@ -8,6 +8,7 @@ const RECOMMENDED_CYCLES = {
 
 // Stockage local
 const STORAGE_KEY = 'sleepData';
+const THEME_KEY = 'theme';
 
 // Messages personnalisés
 const APP_MESSAGES = {
@@ -19,6 +20,12 @@ const APP_MESSAGES = {
     calendarTitle: "Synchronisation avec votre calendrier",
     notificationTitle: "Le sommeil c'est important - Rappel",
     notificationBody: "Il est temps de préparer votre sommeil !"
+};
+
+// Constantes pour le thème
+const THEMES = {
+    LIGHT: 'light',
+    DARK: 'dark'
 };
 
 // Initialisation
@@ -51,6 +58,39 @@ function initializeApp() {
     notifButton.innerHTML = '<i class="fas fa-bell"></i> Activer les notifications';
     notifButton.onclick = requestNotificationPermission;
     document.body.appendChild(notifButton);
+    
+    // Initialisation du thème
+    initializeTheme();
+    
+    // Écouteur d'événement pour le changement de thème
+    document.getElementById('themeSwitch').addEventListener('click', toggleTheme);
+}
+
+// Fonction d'initialisation du thème
+function initializeTheme() {
+    const savedTheme = localStorage.getItem(THEME_KEY) || THEMES.LIGHT;
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
+
+// Fonction de changement de thème
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT;
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem(THEME_KEY, newTheme);
+    updateThemeIcon(newTheme);
+}
+
+// Mise à jour de l'icône du thème
+function updateThemeIcon(theme) {
+    const themeIcon = document.querySelector('#themeSwitch i');
+    if (theme === THEMES.DARK) {
+        themeIcon.className = 'fas fa-moon';
+    } else {
+        themeIcon.className = 'fas fa-sun';
+    }
 }
 
 // Fonction principale de calcul des cycles
