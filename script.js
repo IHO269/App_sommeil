@@ -86,10 +86,14 @@ function toggleTheme() {
 // Mise à jour de l'icône du thème
 function updateThemeIcon(theme) {
     const themeIcon = document.querySelector('#themeSwitch i');
+    const themeText = document.querySelector('#themeSwitch span');
+    
     if (theme === THEMES.DARK) {
         themeIcon.className = 'fas fa-moon';
+        themeText.textContent = 'Mode jour';
     } else {
         themeIcon.className = 'fas fa-sun';
+        themeText.textContent = 'Mode nuit';
     }
 }
 
