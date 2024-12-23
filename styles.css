@@ -1,44 +1,194 @@
-/* Thème clair (par défaut) */
+/* Import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300&display=swap');
+
+/* Variables globales */
 :root {
-    --background-color: #f0f2f5;
-    --card-background: #ffffff;
-    --text-color: #2c3e50;
-    --text-secondary: #6c757d;
-    --border-color: #e1e4e8;
-    --primary-color: #3498db;
-    --primary-hover: #2980b9;
+    /* Couleurs mode jour */
+    --background-color: #F9F9F9;
+    --card-background: #FFFFFF;
+    --text-color: #333333;
+    --text-secondary: #666666;
+    --primary-color: #007BFF;
+    --primary-hover: #0056b3;
+    --border-color: #CCCCCC;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --input-background: #ffffff;
-    --input-border: #ced4da;
-    --input-text: #2c3e50;
-    --tab-active-border: #3498db;
-    --tab-hover-bg: #f8f9fa;
+    --input-background: #FFFFFF;
+    --input-border: #CCCCCC;
+    --input-text: #333333;
+    --gradient-start: #FFFFFF;
+    --gradient-end: #EAF6FF;
 }
 
 /* Thème sombre */
 [data-theme="dark"] {
-    --background-color: #1a1f2c;
-    --card-background: #2a3142;
-    --text-color: #e2e8f0;
-    --text-secondary: #cbd5e0;
-    --border-color: #3d4557;
-    --primary-color: #60a5fa;
-    --primary-hover: #3b82f6;
+    --background-color: #121212;
+    --card-background: #1E1E1E;
+    --text-color: #E0E0E0;
+    --text-secondary: #B3B3B3;
+    --primary-color: #4CAF50;
+    --primary-hover: #388E3C;
+    --border-color: #2A2A2A;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --input-background: #374151;
-    --input-border: #4b5563;
-    --input-text: #e2e8f0;
-    --tab-active-border: #60a5fa;
-    --tab-hover-bg: #374151;
+    --input-background: #1E1E1E;
+    --input-border: #2A2A2A;
+    --input-text: #E0E0E0;
+    --gradient-start: #1C1C1C;
+    --gradient-end: #2A2A2A;
 }
 
-/* Animation de transition entre les thèmes */
+/* Styles de base */
 body {
-    transition: background-color 0.5s ease, color 0.5s ease;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Typographie */
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0.875rem;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.text-secondary {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: var(--text-secondary);
+}
+
+/* Boutons */
+.btn {
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    box-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+}
+
+/* Champs de saisie */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    padding: 0.625rem;
+    background-color: var(--input-background);
+    color: var(--input-text);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25);
+}
+
+.form-control::placeholder {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* Cartes */
 .card {
-    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    border: none;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow), 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation */
+.nav-tabs {
+    border-bottom: 2px solid var(--border-color);
+    gap: 0.5rem;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: 8px 8px 0 0;
+    color: var(--text-color);
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    background-color: transparent;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 /* Étoiles pour le mode nuit */
