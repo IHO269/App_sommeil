@@ -1,0 +1,258 @@
+body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 15px;
+    background-color: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+}
+
+.form-floating label {
+    color: #6c757d;
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+    border: 1px solid #e1e4e8;
+    color: #3498db;
+}
+
+.btn {
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.btn-outline-primary:hover {
+    background-color: #3498db;
+    border-color: #3498db;
+    color: white;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #e1e4e8;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: #6c757d;
+    padding: 1rem;
+    margin-right: 0.5rem;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.2s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #3498db;
+    background-color: #f8f9fa;
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: #3498db;
+    background-color: transparent;
+    border-bottom: 2px solid #3498db;
+}
+
+/* Styles pour les cartes de sieste */
+.nap-card {
+    cursor: pointer;
+    text-align: center;
+    height: 100%;
+}
+
+.nap-card:hover {
+    border-color: #3498db;
+}
+
+.nap-card.selected {
+    background-color: #f0f9ff;
+    border-color: #3498db;
+}
+
+.nap-card i {
+    font-size: 2rem;
+    color: #3498db;
+}
+
+/* Styles pour les statistiques */
+.stats-container .card {
+    height: 100%;
+}
+
+#sleepChart {
+    min-height: 300px;
+}
+
+/* Styles pour le calendrier */
+.calendar-container {
+    min-height: 400px;
+}
+
+/* Styles pour l'alarme intelligente */
+.form-switch .form-check-input {
+    width: 3em;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-pane {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Styles pour les cycles */
+.cycles-table-container {
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+    margin-bottom: 0;
+    background-color: white;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #e1e4e8;
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.cycle-icon-small {
+    color: #3498db;
+    margin-right: 0.5rem;
+    font-size: 0.9em;
+}
+
+.cycles-visualization {
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.cycles-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cycle-icon {
+    font-size: 1.5rem;
+    color: #3498db;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .table thead th,
+    .table tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .cycles-icons {
+        gap: 0.5rem;
+    }
+    
+    .cycle-icon {
+        font-size: 1.2rem;
+    }
+    
+    .nap-card {
+        margin-bottom: 1rem;
+    }
+}
