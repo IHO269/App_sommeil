@@ -32,6 +32,15 @@ h1 {
 .form-control {
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    background-color: var(--input-background);
+    color: var(--input-text);
+}
+
+.form-control:focus {
+    background-color: var(--input-background);
+    border-color: var(--primary-color);
+    color: var(--input-text);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
 }
 
 .form-floating label {
@@ -42,6 +51,9 @@ h1 {
     background-color: var(--card-background);
     border: 1px solid var(--border-color);
     color: var(--primary-color);
+    background-color: var(--input-background);
+    border-color: var(--input-border);
+    color: var(--text-secondary);
 }
 
 .btn {
@@ -62,6 +74,17 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+[data-theme="dark"] .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
 .btn-outline-primary {
     border-color: var(--primary-color);
     color: var(--primary-color);
@@ -71,6 +94,17 @@ h1 {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: white;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
 }
 
 .nav-tabs {
@@ -88,7 +122,7 @@ h1 {
 
 .nav-tabs .nav-link:hover {
     color: var(--primary-color);
-    background-color: var(--card-background);
+    background-color: var(--tab-hover-bg);
     border-color: transparent;
 }
 
@@ -114,9 +148,24 @@ h1 {
     border-color: var(--primary-color);
 }
 
+[data-theme="dark"] .nap-card {
+    background-color: var(--input-background);
+}
+
+[data-theme="dark"] .nap-card:hover,
+[data-theme="dark"] .nap-card.selected {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
 .nap-card i {
     font-size: 2rem;
     color: var(--primary-color);
+}
+
+[data-theme="dark"] .nap-card:hover i,
+[data-theme="dark"] .nap-card.selected i {
+    color: #ffffff;
 }
 
 /* Styles pour les statistiques */
@@ -170,6 +219,7 @@ h1 {
 .table {
     margin-bottom: 0;
     background-color: white;
+    color: var(--text-color);
 }
 
 .table thead th {
@@ -184,6 +234,7 @@ h1 {
     padding: 1rem;
     vertical-align: middle;
     border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
 }
 
 .cycle-icon-small {
@@ -334,18 +385,28 @@ h1 {
     --primary-color: #3498db;
     --primary-hover: #2980b9;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --input-background: #ffffff;
+    --input-border: #ced4da;
+    --input-text: #2c3e50;
+    --tab-active-border: #3498db;
+    --tab-hover-bg: #f8f9fa;
 }
 
 /* Thème sombre */
 [data-theme="dark"] {
     --background-color: #1a1a1a;
     --card-background: #2d2d2d;
-    --text-color: #ffffff;
-    --text-secondary: #b3b3b3;
+    --text-color: #e1e1e1;
+    --text-secondary: #b0b0b0;
     --border-color: #404040;
-    --primary-color: #3498db;
-    --primary-hover: #2980b9;
+    --primary-color: #4fa3e0;
+    --primary-hover: #3498db;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --input-background: #3d3d3d;
+    --input-border: #505050;
+    --input-text: #e1e1e1;
+    --tab-active-border: #4fa3e0;
+    --tab-hover-bg: #383838;
 }
 
 /* Style du switch thème */
@@ -382,4 +443,18 @@ h1 {
     color: var(--text-color);
     font-size: 0.9rem;
     font-weight: 500;
+}
+
+[data-theme="dark"] .form-floating label {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .form-floating > .form-control:focus ~ label,
+[data-theme="dark"] .form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .card {
+    background-color: var(--card-background);
+    border-color: var(--border-color);
 }
