@@ -685,80 +685,22 @@ h1 {
     }
 }
 
-/* Styles des icônes 3D */
-.icon-3d {
-    width: 48px;
-    height: 48px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 1rem;
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+/* Icônes */
+.nav-tabs .nav-link i {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-tabs .nav-link:hover i,
+.nav-tabs .nav-link.active i {
+    color: var(--primary-color);
+}
+
+.fa-3x {
     transition: transform 0.3s ease;
 }
 
-.icon-3d:hover {
-    transform: translateY(-2px);
-}
-
-/* Icônes spécifiques */
-.icon-moon {
-    background-image: url('icons/3d/moon.png');
-    width: 64px;
-    height: 64px;
-}
-
-.icon-clock {
-    background-image: url('icons/3d/clock.png');
-    width: 64px;
-    height: 64px;
-}
-
-.icon-alarm {
-    background-image: url('icons/3d/alarm.png');
-    width: 64px;
-    height: 64px;
-}
-
-.icon-sleep {
-    background-image: url('icons/3d/sleep.png');
-    width: 64px;
-    height: 64px;
-}
-
-.icon-stats {
-    background-image: url('icons/3d/stats.png');
-    width: 64px;
-    height: 64px;
-}
-
-.icon-settings {
-    background-image: url('icons/3d/settings.png');
-    width: 64px;
-    height: 64px;
-}
-
-/* Adaptation des onglets avec les nouvelles icônes */
-.nav-tabs .nav-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 1.5rem;
-}
-
-.nav-tabs .nav-link .icon-3d {
-    margin-bottom: 0.5rem;
-}
-
-/* Style des cartes avec les nouvelles icônes */
-.card-icon {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-/* Adaptation pour le mode sombre */
-[data-theme="dark"] .icon-3d {
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
-    opacity: 0.9;
+.fa-3x:hover {
+    transform: scale(1.1);
 }
