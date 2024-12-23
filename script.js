@@ -52,11 +52,10 @@ function initializeApp() {
     
     // Ajouter un bouton pour activer les notifications
     const notifButton = document.createElement('button');
-    notifButton.className = 'btn btn-primary position-fixed';
-    notifButton.style.bottom = '80px';
-    notifButton.style.right = '20px';
-    notifButton.innerHTML = '<i class="fas fa-bell"></i> Activer les notifications';
-    notifButton.onclick = requestNotificationPermission;
+    notifButton.className = 'notification-button';
+    notifButton.id = 'notificationButton';
+    notifButton.innerHTML = '<i class="fas fa-bell"></i><span>Activer les notifications</span>';
+    notifButton.onclick = handleNotificationClick;
     document.body.appendChild(notifButton);
     
     // Initialisation du thème
@@ -503,13 +502,16 @@ function getCyclePhase(cycleNum) {
 
 // Fonction pour demander la permission des notifications
 async function requestNotificationPermission() {
-    if ('Notification' in window) {
+    try {
         const permission = await Notification.requestPermission();
         if (permission === 'granted') {
-            // Afficher un message de confirmation
-            showToast("Notifications activées pour 'Le sommeil c'est important'");
-            subscribeToNotifications();
+            await subscribeToNotifications();
+            return true;
         }
+        return false;
+    } catch (error) {
+        console.error('Erreur lors de la demande de permission:', error);
+        throw error;
     }
 }
 
@@ -544,4 +546,30 @@ function displayStatistics(stats) {
             </div>
         </div>
     `;
+}
+
+// Gestion du clic sur le bouton de notification
+async function handleNotificationClick() {
+    const button = document.getElementById('notificationButton');
+    button.classList.add('expanded');
+    
+    try {
+        await requestNotificationPermission();
+        // Mise à jour du texte en fonction de l'état des notifications
+        if (Notification.permission === 'granted') {
+            button.innerHTML = '<i class="fas fa-bell"></i><span>Notifications activées</span>';
+            button.style.backgroundColor = '#28a745'; // Vert pour indiquer que c'est activé
+        } else if (Notification.permission === 'denied') {
+            button.innerHTML = '<i class="fas fa-bell-slash"></i><span>Notifications bloquées</span>';
+            button.style.backgroundColor = '#dc3545'; // Rouge pour indiquer que c'est bloqué
+        }
+    } catch (error) {
+        button.innerHTML = '<i class="fas fa-bell-slash"></i><span>Erreur d\'activation</span>';
+        button.style.backgroundColor = '#dc3545';
+    }
+    
+    // Retirer la classe expanded après un délai
+    setTimeout(() => {
+        button.classList.remove('expanded');
+    }, 3000);
 }

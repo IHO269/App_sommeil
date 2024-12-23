@@ -225,6 +225,71 @@ h1 {
     }
 }
 
+/* Style du bouton de notification */
+.notification-button {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px;
+    transition: all 0.3s ease;
+    box-shadow: var(--card-shadow);
+    max-width: 50px;
+}
+
+.notification-button:hover,
+.notification-button.expanded {
+    max-width: 300px;
+    padding: 10px 20px;
+}
+
+.notification-button i {
+    font-size: 1.2rem;
+    min-width: 20px;
+}
+
+.notification-button span {
+    white-space: nowrap;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.notification-button:hover span,
+.notification-button.expanded span {
+    opacity: 1;
+}
+
+.notification-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation de la cloche */
+@keyframes ring {
+    0% { transform: rotate(0); }
+    10% { transform: rotate(15deg); }
+    20% { transform: rotate(-15deg); }
+    30% { transform: rotate(10deg); }
+    40% { transform: rotate(-10deg); }
+    50% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    70% { transform: rotate(0); }
+    100% { transform: rotate(0); }
+}
+
+.notification-button:hover i {
+    animation: ring 1s ease;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .card-body {
