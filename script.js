@@ -63,6 +63,10 @@ function initializeApp() {
     
     // Écouteur d'événement pour le changement de thème
     document.getElementById('themeSwitch').addEventListener('click', toggleTheme);
+    
+    // Création des éléments décoratifs
+    createStars();
+    createClouds();
 }
 
 // Fonction d'initialisation du thème
@@ -77,9 +81,18 @@ function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT;
     
+    // Ajouter la classe d'animation
+    document.body.classList.add('theme-transition');
+    
+    // Changer le thème
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem(THEME_KEY, newTheme);
     updateThemeIcon(newTheme);
+    
+    // Retirer la classe d'animation après la transition
+    setTimeout(() => {
+        document.body.classList.remove('theme-transition');
+    }, 500);
 }
 
 // Mise à jour de l'icône du thème
@@ -572,4 +585,43 @@ async function handleNotificationClick() {
     setTimeout(() => {
         button.classList.remove('expanded');
     }, 3000);
+}
+
+// Fonction pour créer les étoiles
+function createStars() {
+    const starsContainer = document.createElement('div');
+    starsContainer.className = 'stars';
+    
+    for (let i = 0; i < 50; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.width = `${Math.random() * 3}px`;
+        star.style.height = star.style.width;
+        star.style.setProperty('--twinkle-duration', `${2 + Math.random() * 3}s`);
+        star.style.setProperty('--star-opacity', `${0.5 + Math.random() * 0.5}`);
+        starsContainer.appendChild(star);
+    }
+    
+    document.body.appendChild(starsContainer);
+}
+
+// Fonction pour créer les nuages
+function createClouds() {
+    const cloudsContainer = document.createElement('div');
+    cloudsContainer.className = 'clouds';
+    
+    for (let i = 0; i < 5; i++) {
+        const cloud = document.createElement('div');
+        cloud.className = 'cloud';
+        cloud.style.left = `${Math.random() * 100}%`;
+        cloud.style.top = `${Math.random() * 50}%`;
+        cloud.style.width = `${100 + Math.random() * 100}px`;
+        cloud.style.height = `${50 + Math.random() * 30}px`;
+        cloud.style.setProperty('--float-duration', `${10 + Math.random() * 10}s`);
+        cloudsContainer.appendChild(cloud);
+    }
+    
+    document.body.appendChild(cloudsContainer);
 }
