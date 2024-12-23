@@ -93,7 +93,46 @@
                                         Calculer les cycles
                                     </button>
                                 </form>
-                                <div id="result" class="mt-4"></div>
+                                <div id="result" class="mt-4">
+                                    <!-- Résultats -->
+                                    <div class="result-card p-4 rounded mb-4">
+                                        <p class="mb-2">Entre <span class="highlight-value">22h35</span> et <span class="highlight-value">04h30</span> :</p>
+                                        <p class="mb-2">Durée de sommeil : <span class="highlight-value glow-effect">5h55min</span></p>
+                                        <p>Nombre de cycles complets : <span class="highlight-value glow-effect">3</span></p>
+                                    </div>
+
+                                    <!-- Tableau des cycles -->
+                                    <table class="table cycle-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Cycle</th>
+                                                <th>Début</th>
+                                                <th>Fin</th>
+                                                <th>Phase principale</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="cycle-row">
+                                                <td><i class="fas fa-moon"></i> Cycle 1</td>
+                                                <td>22h35</td>
+                                                <td>00h05</td>
+                                                <td class="phase-principale">Sommeil léger et profond</td>
+                                            </tr>
+                                            <tr class="cycle-row">
+                                                <td><i class="fas fa-moon"></i> Cycle 2</td>
+                                                <td>00h05</td>
+                                                <td>01h35</td>
+                                                <td class="phase-principale">Sommeil profond</td>
+                                            </tr>
+                                            <tr class="cycle-row">
+                                                <td><i class="fas fa-moon"></i> Cycle 3</td>
+                                                <td>01h35</td>
+                                                <td>03h05</td>
+                                                <td class="phase-principale">Sommeil paradoxal</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
                             <!-- Onglet Réveil Optimal -->

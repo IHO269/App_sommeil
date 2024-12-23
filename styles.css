@@ -21,19 +21,130 @@
 
 /* Thème sombre */
 [data-theme="dark"] {
-    --background-color: #121212;
-    --card-background: #1E1E1E;
-    --text-color: #E0E0E0;
-    --text-secondary: #B3B3B3;
-    --primary-color: #4CAF50;
-    --primary-hover: #388E3C;
-    --border-color: #2A2A2A;
+    --background-color: #1a1f2c;
+    --card-background: #2d3748;
+    --text-color: #ffffff;
+    --text-secondary: #cbd5e0;
+    --primary-color: #68d391;
+    --primary-hover: #48bb78;
+    --border-color: #4a5568;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --input-background: #1E1E1E;
-    --input-border: #2A2A2A;
-    --input-text: #E0E0E0;
-    --gradient-start: #1C1C1C;
-    --gradient-end: #2A2A2A;
+    --input-background: #2d3748;
+    --input-border: #4a5568;
+    --input-text: #ffffff;
+    --gradient-start: #1a202c;
+    --gradient-end: #2d3748;
+}
+
+/* Améliorations pour le mode sombre */
+[data-theme="dark"] .card {
+    background-color: rgba(45, 55, 72, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .table {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .table thead th {
+    background-color: #2d3748;
+    color: #ffffff;
+    border-bottom: 2px solid #4a5568;
+}
+
+[data-theme="dark"] .table tbody td {
+    color: #ffffff;
+    border-color: #4a5568;
+}
+
+[data-theme="dark"] .nav-tabs .nav-link {
+    color: #cbd5e0;
+}
+
+[data-theme="dark"] .nav-tabs .nav-link:hover {
+    color: #68d391;
+    background-color: rgba(104, 211, 145, 0.1);
+}
+
+[data-theme="dark"] .nav-tabs .nav-link.active {
+    color: #68d391;
+    background-color: transparent;
+    border-color: #68d391;
+}
+
+[data-theme="dark"] .form-control {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .form-control:focus {
+    border-color: #68d391;
+    box-shadow: 0 0 0 0.2rem rgba(104, 211, 145, 0.25);
+}
+
+[data-theme="dark"] .text-secondary {
+    color: #cbd5e0 !important;
+}
+
+[data-theme="dark"] .btn-primary {
+    background-color: #68d391;
+    border-color: #68d391;
+    color: #1a202c;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: #48bb78;
+    border-color: #48bb78;
+}
+
+/* Amélioration des contrastes pour les résultats */
+[data-theme="dark"] .result-card {
+    background-color: rgba(45, 55, 72, 0.95);
+    border: 1px solid #4a5568;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .cycle-row {
+    background-color: rgba(45, 55, 72, 0.8);
+}
+
+[data-theme="dark"] .cycle-row:hover {
+    background-color: rgba(104, 211, 145, 0.1);
+}
+
+/* Amélioration de la lisibilité des valeurs importantes */
+[data-theme="dark"] .highlight-value {
+    color: #68d391;
+    font-weight: 600;
+}
+
+/* Ajout d'un effet de lueur pour les éléments importants */
+[data-theme="dark"] .glow-effect {
+    text-shadow: 0 0 8px rgba(104, 211, 145, 0.3);
+}
+
+/* Style spécifique pour le tableau des cycles */
+[data-theme="dark"] .cycle-table th,
+[data-theme="dark"] .cycle-table td {
+    background-color: rgba(45, 55, 72, 0.95);
+    border-color: #4a5568;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .cycle-table .phase-principale {
+    color: #68d391;
+    font-weight: 500;
+}
+
+/* Amélioration de la visibilité des icônes */
+[data-theme="dark"] .fas {
+    color: #cbd5e0;
+}
+
+[data-theme="dark"] .nav-link.active .fas,
+[data-theme="dark"] .nav-link:hover .fas {
+    color: #68d391;
 }
 
 /* Styles de base */
